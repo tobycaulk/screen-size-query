@@ -1,6 +1,6 @@
 # screen-size-query
 
-> Retrieve screen size information, determine if screen is currently mobile or desktop size
+> A small, no external dependency hook that lets you know if the current viewport is mobile sized. 
 
 [![NPM](https://img.shields.io/npm/v/screen-size-query.svg)](https://www.npmjs.com/package/screen-size-query) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -14,13 +14,18 @@ npm install --save screen-size-query
 
 ```jsx
 import React, { Component } from 'react'
-
-import MyComponent from 'screen-size-query'
-import 'screen-size-query/dist/index.css'
+import useSizeQuery from 'screen-size-query'
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    const { size, isMobile } = useSizeQuery();
+
+    return (
+      <>
+        <h1>Size: {size}</h1>
+        <h1>IsMobile: {isMobile.toString()}</h1>
+      </>
+    )
   }
 }
 ```

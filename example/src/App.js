@@ -1,10 +1,19 @@
 import React from 'react'
-
-import { ExampleComponent } from 'screen-size-query'
-import 'screen-size-query/dist/index.css'
+import useSizeQuery from 'screen-size-query';
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  const { size, isMobile } = useSizeQuery();
+
+  return (
+    <>
+      <h1>
+        Size: {size}
+      </h1>
+      <h1>
+        IsMobile: {isMobile.toString()}
+      </h1>
+    </>
+  )
 }
 
-export default App
+export default App;
